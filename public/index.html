@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Lab</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Regex Lab</h1>
+            <p>An AI assisted regular expression solution</p>
+        </div>
+        
+        <div class="prompt-container">
+            <input type="text" id="prompt-input" placeholder="Match all valid gmail addresses..." />
+            <button id="action-button">Gen Tests</button>
+        </div>
+
+        <div class="cheatsheet-wrapper">
+            <button id="cheatsheet-button" class="cheatsheet-dropdown-button" aria-expanded="false">
+                <span>Cheat Sheet</span>
+                <span class="dropdown-arrow">
+                    <svg 
+                        fill="currentColor" 
+                        height="24" 
+                        viewBox="0 0 24 24" 
+                        width="24" 
+                        xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.29289 8.29289C4.68342 7.90237 5.31658 7.90237 5.70711 8.29289L12 14.5858L18.2929 8.29289C18.6834 7.90237 19.3166 7.90237 19.7071 8.29289C20.0976 8.68342 20.0976 9.31658 19.7071 9.70711L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L4.29289 9.70711C3.90237 9.31658 3.90237 8.68342 4.29289 8.29289Z"/>
+                    </svg>
+                </span>
+            </button>
+            
+            <div id="cheatsheet-container" class="cheatsheet collapsed">
+                <div class="cheatsheet-category">
+                    <h2>Basic Matching Operators</h2>
+                    <div class="cheatsheet-grid">
+                        <div class="cheatsheet-item">
+                            <span class="character">.</span>
+                            <span class="description">Matches any single character except newline.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">^</span>
+                            <span class="description">Matches start of string or line.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">$</span>
+                            <span class="description">Matches end of string or line.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">\</span>
+                            <span class="description">Escapes special characters.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cheatsheet-category">
+                    <h2>Quantifiers</h2>
+                    <div class="cheatsheet-grid">
+                        <div class="cheatsheet-item">
+                            <span class="character">*</span>
+                            <span class="description">Matches last character 0 or more times.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">+</span>
+                            <span class="description">Matches last character 1 or more times.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">?</span>
+                            <span class="description">Matches last character 0 or 1 time.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">{n}</span>
+                            <span class="description">Matches exactly n occurrences of last character.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">{n,}</span>
+                            <span class="description">Matches n or more occurrences of last character.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">{n,m}</span>
+                            <span class="description">Matches between n and m occurrences (incl.) of last character.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cheatsheet-category">
+                    <h2>Character Classes</h2>
+                    <div class="cheatsheet-grid">
+                        <div class="cheatsheet-item">
+                            <span class="character">[abc]</span>
+                            <span class="description">Character class: matches any one of the characters.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">[^abc]</span>
+                            <span class="description">Negated character class: matches any character except those listed.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">-</span>
+                            <span class="description">Specifies a range within a character class.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">\d</span>
+                            <span class="description">Matches any digit (equivalent to [0-9]).</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">\D</span>
+                            <span class="description">Matches any non-digit (equivalent to [^0-9]).</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">\w</span>
+                            <span class="description">Matches any word character [A-Za-z0-9_].</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">\W</span>
+                            <span class="description">Matches any non-word character.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">\s</span>
+                            <span class="description">Matches any whitespace character.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">\S</span>
+                            <span class="description">Matches any non-whitespace character.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cheatsheet-category">
+                    <h2>Grouping and Capturing</h2>
+                    <div class="cheatsheet-grid">
+                        <div class="cheatsheet-item">
+                            <span class="character">()</span>
+                            <span class="description">Capturing group: groups and captures matched content.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">(?:)</span>
+                            <span class="description">Non-capturing group: groups without capturing.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">\n</span>
+                            <span class="description">Backreference to the nth capture group.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cheatsheet-category">
+                    <h2>Alternation</h2>
+                    <div class="cheatsheet-grid">
+                        <div class="cheatsheet-item">
+                            <span class="character">|</span>
+                            <span class="description">Alternation (OR operator).</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cheatsheet-category">
+                    <h2>Lookarounds (Zero-Width Assertions)</h2>
+                    <div class="cheatsheet-grid">
+                        <div class="cheatsheet-item">
+                            <span class="character">(?=)</span>
+                            <span class="description">Positive lookahead: asserts what follows the current position.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">(?!)</span>
+                            <span class="description">Negative lookahead: asserts what doesn't follow the current position.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">(?<=)</span>
+                            <span class="description">Positive lookbehind: asserts what precedes the current position.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">(?<&#33;)</span>
+                            <span class="description">Negative lookbehind: asserts what doesn't precede the current position.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cheatsheet-category">
+                    <h2>Modifiers (Flags)</h2>
+                    <div class="cheatsheet-grid">
+                        <div class="cheatsheet-item">
+                            <span class="character">i</span>
+                            <span class="description">Case-insensitive matching.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">g</span>
+                            <span class="description">Global matching (find all matches).</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">m</span>
+                            <span class="description">Multiline mode (^ and $ match start/end of each line).</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">s</span>
+                            <span class="description">Dot matches newline.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">u</span>
+                            <span class="description">Unicode mode (enables full Unicode matching).</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">y</span>
+                            <span class="description">Sticky mode (matches only from the last index).</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cheatsheet-category">
+                    <h2>Boundary Matchers</h2>
+                    <div class="cheatsheet-grid">
+                        <div class="cheatsheet-item">
+                            <span class="character">\b</span>
+                            <span class="description">Word boundary.</span>
+                        </div>
+                        <div class="cheatsheet-item">
+                            <span class="character">\B</span>
+                            <span class="description">Non-word boundary.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="results-container" class="hidden">
+            <h2>Pattern</h2>
+            <div class="regex-input-group">
+                <input type="text" id="regex-input" placeholder="Create a regex pattern..." />
+                <button id="copy-button" title="Copy to clipboard">Copy</button>
+            </div>
+            
+            <div id="error-message" class="error">Invalid regex pattern</div>
+            
+            <h2>Test Cases</h2>
+            <div class="test-cases" id="test-cases-container">
+                <p class="test-case-placeholder">None yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="../src/server.js"></script>
+</body>
+</html>
