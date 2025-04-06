@@ -3,9 +3,9 @@
 An AI-assisted regular expression testing tool to help you create and test regex patterns with ease.
 
 ### Motivation
-This tool is not intended to auto-generate regex patterns with AI. Rather, it helps you comprehensively validate the patterns you create yourself. Regex is a complex, and often confusing tool. However, it is powerful when used correctly. There is great value in knowing how to create regex patterns yourself.
+This tool is not meant to auto-generate regex patterns with AI. Instead, it’s built to help you thoroughly validate the patterns you craft yourself. Regex can be complex and confusing at times. However, it is incredibly powerful when used well. There’s real value in mastering how to create regex patterns on your own, and Regex Labs is here to support that.
 
-Regex Labs is designed to help you learn and understand regex, while also providing a user-friendly interface for testing and validating your patterns.
+Present-day generative AI models, for all their strengths, tend to stumble with output errors. These can range from minor slip-ups to wild hallucinations. That makes them unreliable for generating regexes, which necessitate precise output even in the simplest cases. Generating test cases is a particular strength of AI, creating diverse and relevant examples to test against. Regex Labs taps into that strength, using AI not to write patterns for you, but to equip you with comprehensive test suites tailored to your specific use cases. Paired with real-time feedback, Regex Labs becomes a practical avenue to build, test, and refine regexes. It’s a bridge between your knowledge and a bit of AI-powered help, wrapped in a user-friendly interface.
 
 ## Features
 
