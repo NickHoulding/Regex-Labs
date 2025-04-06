@@ -1,6 +1,11 @@
 # Regex Labs
 
+### Introduction and Motivation
 An AI-assisted regular expression testing tool to help you create and test regex patterns with ease.
+
+This tool is not intended to auto-generate regex patterns with AI. Rather, it helps you comprehensively validate the patterns you create yourself. Regex is a complex, and often confusing tool. However, it is powerful when used correctly. There is great value in knowing how to create regex patterns yourself.
+
+Regex Labs is designed to help you learn and understand regex, while also providing a user-friendly interface for testing and validating your patterns.
 
 ## Features
 
@@ -8,7 +13,7 @@ An AI-assisted regular expression testing tool to help you create and test regex
 - **Interactive Testing**: Real-time validation of your regex against test cases
 - **Match Highlighting**: Visual highlighting of pattern matches within test strings
 - **Capture Groups**: Automatic extraction and display of capture groups
-- **Copy to Clipboard**: Easily copy your completed regex pattern
+- **Copy to Clipboard**: Easily copy your completed regex pattern to use in your projects
 - **Regex Cheat Sheet**: Built-in comprehensive reference for regex syntax and patterns
 
 ## Installation
