@@ -44,7 +44,7 @@ Paired with real-time feedback, Regex Labs becomes a practical avenue to build, 
 ## Usage
 
 1. **Enter a prompt**: Describe what you want your regex to match (e.g., "Match all valid email addresses")
-2. **Click "Gen Tests"**: AI will generate relevant test cases based on your description
+2. **Click "Create Tests"**: AI will generate relevant test cases based on your description
 3. **Create your regex pattern**: Enter your regular expression in the pattern field
 4. **Test and refine**: Your pattern will be automatically tested against all cases with real-time feedback
 5. **Use the cheat sheet**: Click the "Cheat Sheet" dropdown for regex syntax help

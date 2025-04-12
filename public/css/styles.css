@@ -290,6 +290,7 @@ p {
     width: 90%;
     max-width: 500px;
     padding: 20px;
+    margin: 0px 20px;
     transform: translateY(-20px);
     transition: transform 0.3s ease;
 }
@@ -303,13 +304,13 @@ p {
 }
 
 .modal-header h2 {
-    text-align: left;
+    text-align: center;
     margin: 0;
     color: #FFFFFF;
 }
 
 .modal-body {
-    
+    text-align: center;
     font-size: 1em;
     margin-bottom: 20px;
 }
@@ -321,13 +322,26 @@ p {
 
 .modal-footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 10px;
 }
 
+/* Center the button when only one is visible */
+.modal-footer.single-button {
+    justify-content: center;
+}
+
+/* Reset margin for buttons in single-button mode */
+.modal-footer.single-button .modal-cancel-btn,
+.modal-footer.single-button .modal-confirm-btn {
+    margin: 0;
+}
+
+/* Modal button styles */
 .modal-cancel-btn {
     margin-right: auto;
     background-color: #555;
+    transition: background-color 0.3s ease;
 }
 
 .modal-cancel-btn:hover {
@@ -338,10 +352,42 @@ p {
     background-color: #ff3333;
     border: 1px solid #444;
     margin-left: auto;
+    transition: background-color 0.3s ease;
 }
 
 .modal-confirm-btn:hover {
     background-color: #ff5555;
+}
+
+/* Ensure hover states are consistent in single button mode */
+.modal-footer.single-button .modal-cancel-btn:hover {
+    background-color: #777;
+}
+
+.modal-footer.single-button .modal-confirm-btn:hover {
+    background-color: #ff5555;
+}
+
+/* Center the button when only one is visible */
+.modal-footer.single-button {
+    justify-content: center;
+}
+
+/* Reset margin for buttons in single-button mode */
+.modal-footer.single-button .modal-cancel-btn,
+.modal-footer.single-button .modal-confirm-btn {
+    margin: 0;
+}
+
+.modal-cancel-btn {
+    margin-right: auto;
+    background-color: #555;
+}
+
+.modal-confirm-btn {
+    background-color: #ff3333;
+    border: 1px solid #444;
+    margin-left: auto;
 }
 
 .regex-input-group {
@@ -593,4 +639,40 @@ p {
 /* Override the previous .hidden class for the results container */
 #results-container.hidden {
     display: none;
+}
+
+.modal-close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-close-btn:hover {
+    color: #333;
+}
+
+.modal-icon-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-icon-container svg {
+    width: 4em;
+    height: 4em;
+}
+
+.modal-warning .modal-icon-container svg {
+    color: #ffc800;
+}
+
+.modal-reset .modal-icon-container svg {
+    color: #FFFFFF;
 }

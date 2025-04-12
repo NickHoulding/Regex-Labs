@@ -1,14 +1,34 @@
-const express = require('express');
-const generateTestCases = require('./utils/aiGenerator');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { generateRegexTestCases } from './services/ollamaService.js';
+
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(express.static('public'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-app.get('/api/generate-tests', (req, res) => {
-    const tests = generateTestCases();
-    res.json(tests);
+app.use(express.json());
+app.use(express.static(path.join(__dirname, '../public')));
+
+app.post('/api/generate', async (req, res) => {
+    try {
+        const { prompt } = req.body;
+        
+        if (!prompt) {
+            return res.status(400).json({ error: 'Prompt is required' });
+        }
+        
+        const result = await generateRegexTestCases(prompt);
+        
+        res.json({ result });
+    } catch (error) {
+        console.error('Error querying Ollama:', error);
+        res.status(500).json({ error: 'Failed to query AI model' });
+    }
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });

@@ -1,19 +1,22 @@
 {
   "name": "regex-labs",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "http-server public -p 8080"
+    "dev": "nodemon src/server.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
-    "ollama": "^0.5.14"
+    "ollama": "^0.5.14",
+    "zod": "^3.24.2",
+    "zod-to-json-schema": "^3.24.5"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
-  }
+  },
+  "type": "module"
 }
