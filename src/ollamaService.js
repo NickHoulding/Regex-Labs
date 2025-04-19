@@ -1,6 +1,6 @@
 import ollama from 'ollama';
 import { zodToJsonSchema } from 'zod-to-json-schema';
-import { testSuite } from '../schemas/aiSchemas.js';
+import { testSuite } from './aiSchemas.js';
 
 /**
  * Generates test cases for a regex pattern using Ollama

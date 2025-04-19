@@ -1,4 +1,4 @@
-import { escapeHtml, evaluateRegexMatch } from '../utils/regexHelper.js';
+import { escapeHtml, evaluateRegexMatch } from '../regexHelper.js';
 
 export class TestCaseManager {
     constructor(containerElement) {

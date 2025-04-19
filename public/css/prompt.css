@@ -1,0 +1,30 @@
+/* Prompt Container Styles
+   Styling for the input area where users enter their regex needs */
+
+/* Prompt container with inline button */
+.prompt-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.prompt-container #prompt-input {
+    flex-grow: 1;
+    background-color: #2A2A2A;
+    color: #FFFFFF;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 0;
+}
+
+.prompt-container #prompt-input::placeholder {
+    font-style: italic;
+}
+
+.prompt-container #action-button {
+    white-space: nowrap;
+    height: auto;
+}

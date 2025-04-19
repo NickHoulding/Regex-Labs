@@ -1,0 +1,11 @@
+/* Main CSS file for Regex Labs
+   Imports all modular CSS components */
+
+/* Core styles */
+@import 'base.css';
+
+/* Component-specific styles */
+@import 'prompt.css';
+@import 'test-cases.css';
+@import 'cheatsheet.css';
+@import 'modal.css';

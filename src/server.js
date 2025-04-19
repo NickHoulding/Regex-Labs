@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { generateRegexTestCases } from './services/ollamaService.js';
+import { generateRegexTestCases } from './ollamaService.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;

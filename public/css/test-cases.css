@@ -1,0 +1,174 @@
+/* Test Cases Component Styles
+   Styling for test cases display and interaction */
+
+.test-cases {
+    width: 100%;
+    text-align: left;
+    color: #FFFFFF;
+    background-color: #2A2A2A;
+    border: 1px solid #444;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    font-size: 1em;
+}
+
+/* Test cases header styling */
+.column-headers {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5px 5px 5px;
+    font-size: 0.9em;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.expected-header {
+    flex-shrink: 0;
+    width: 45px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.test-case-header {
+    flex-grow: 1;
+    margin-left: 40px;
+    margin-right: 10px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.capture-groups-header {
+    text-align: right;
+    flex-shrink: 0;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* Individual test case styling */
+.test-case {
+    margin: 10px 0;
+    padding: 5px;
+    word-break: break-all;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 1em;
+}
+
+.expected-indicator {
+    flex-shrink: 0;
+    margin-right: 10px;
+    font-size: 1em;
+    font-weight: normal;
+    width: 75px;
+    text-align: left;
+}
+
+.expected-pass {
+    color: #00cc00;
+}
+
+.expected-fail {
+    color: #ff3333;
+}
+
+.test-case-placeholder {
+    padding: 10px 0;
+    color: #777;
+    user-select: none;
+}
+
+.test-string {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+/* Capture groups and regex match styling */
+.capture-groups {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.capture-group {
+    display: inline-block;
+    background-color: #555;
+    color: #FFFFFF;
+    font-size: 0.85em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-left: 4px;
+    margin-bottom: 3px;
+}
+
+.capture-group-index {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.match {
+    color: #00cc00;
+}
+
+.no-match {
+    color: #FFFFFF;
+}
+
+/* Results container animations */
+#results-container {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#results-container.visible {
+    height: auto;
+}
+
+#results-container.hidden {
+    display: none;
+}
+
+/* Regex input and copy button */
+.regex-input-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.regex-input-group input[type="text"] {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.regex-input-group input[type="text"]::placeholder {
+    font-style: italic;
+}
+
+#copy-button {
+    background-color: #444;
+    color: #FFFFFF;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+#copy-button:hover {
+    background-color: #555;
+}
+
+#copy-button.copied {
+    background-color: #00cc00;
+}
+
+#copy-button:disabled {
+    background-color: #333;
+    color: #888;
+    cursor: not-allowed;
+}
