@@ -1,5 +1,10 @@
 /**
- * Escape HTML special characters to prevent XSS
+ * Utility functions for regex operations and display
+ */
+
+/**
+ * Escapes HTML special characters to prevent XSS in displayed content
+ * 
  * @param {string} str - String to escape
  * @returns {string} - Escaped HTML string
  */
@@ -14,6 +19,10 @@ export function escapeHtml(str) {
 
 /**
  * Evaluates a regex against a test string and returns match information
+ * 
+ * Processes regex matches and extracts detailed information including
+ * match positions, matched text, and any capture groups found.
+ * 
  * @param {RegExp} regex - The compiled regular expression
  * @param {string} testString - String to test against the regex
  * @returns {Object} - Match information including positions and capture groups
@@ -26,10 +35,11 @@ export function evaluateRegexMatch(regex, testString) {
     const matches = [];
     let match;
     
+    // Create a non-global version of the regex for testing capture groups
     const regexTest = new RegExp(regex.source, regex.flags.replace('g', ''));
     const testMatch = testString.match(regexTest);
-    const hasCaptureGroups = testMatch && testMatch.length > 1;
     
+    // Ensure global flag is present for iteration through all matches
     const regexWithGlobal = new RegExp(regex.source, 'g' + regex.flags.replace('g', ''));
     
     while ((match = regexWithGlobal.exec(testString)) !== null) {
@@ -42,6 +52,7 @@ export function evaluateRegexMatch(regex, testString) {
             captureGroups: captureGroups
         });
         
+        // Prevent infinite loops for zero-length matches
         if (match.index === regexWithGlobal.lastIndex) {
             regexWithGlobal.lastIndex++;
         }

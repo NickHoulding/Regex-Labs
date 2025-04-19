@@ -1,10 +1,21 @@
+/**
+ * Custom loading spinner element
+ * Creates a reusable, self-contained spinner component with shadow DOM
+ * 
+ * Usage:
+ * <loader-custom></loader-custom>
+ */
 export class Loader extends HTMLElement {
-    // Construct the custom element.
+    /**
+     * Constructs the custom element and initializes shadow DOM
+     */
     constructor() {
         super();
 
-        // Create shadow root and define element structure.
+        // Create shadow root for component encapsulation
         this.attachShadow({ mode: 'open' });
+        
+        // Define component structure with inline styles
         this.shadowRoot.innerHTML = `
             <style>
                 .loader {
@@ -27,5 +38,5 @@ export class Loader extends HTMLElement {
     }
 }
 
-// Define the custom element.
+// Register the custom element in the browser
 customElements.define('loader-custom', Loader);

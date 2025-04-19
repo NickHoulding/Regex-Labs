@@ -1,7 +1,10 @@
 /**
- * Query the Ollama API through our server endpoint
- * @param {string} prompt - User prompt for regex generation
- * @returns {Promise<Object|string>} - The test suite with regex pattern and test cases
+ * Client-side service for querying the Ollama API through server endpoints
+ * Handles communication with the backend for regex test case generation
+ * 
+ * @param {string} prompt - User prompt describing the regex use case
+ * @returns {Promise<Object|string>} - Test cases response from the Ollama model
+ * @throws {Error} - If the server request fails or returns an error
  */
 async function queryOllama(prompt) {
     try {
