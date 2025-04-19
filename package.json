@@ -1,14 +1,16 @@
 {
   "name": "regex-labs",
   "version": "1.0.0",
-  "main": "src/server.js",
+  "description": "AI-assisted regular expression solution",
+  "main": "main.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "start": "electron .",
+    "build": "electron-builder --win",
+    "build-mac": "electron-builder --mac",
+    "build-linux": "electron-builder --linux"
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "express": "^5.1.0",
     "ollama": "^0.5.14",
@@ -16,7 +18,28 @@
     "zod-to-json-schema": "^3.24.5"
   },
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "electron": "^28.1.0",
+    "electron-builder": "^24.9.1"
   },
-  "type": "module"
+  "build": {
+    "appId": "com.regexlabs.app",
+    "productName": "Regex Labs",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/**/*"
+    ],
+    "win": {
+      "icon": "public/images/icons/favicon.png"
+    },
+    "mac": {
+      "icon": "public/images/icons/favicon.png"
+    },
+    "linux": {
+      "icon": "public/images/icons/favicon.png"
+    }
+  }
 }
